@@ -11,7 +11,7 @@ with open('LICENSE') as f:
 
 setup(
     name='markdown_generator',
-    version='0.1.1',
+    version='0.1.2',
     description='Python package for generating GitHub-flavored markdown',
     long_description=readme,
     author='Corey McCandless',
