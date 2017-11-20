@@ -1,2 +1,4 @@
-nose
-sphinx
+flake8==3.5.0
+pep8>1.7,<1.7.99
+pyflakes==1.6.0
+nose==1.3.7
