@@ -16,7 +16,7 @@ matrix:
     - python: nightly
 
 install:
-  - pip install -r requirements.txt
+  - make init
 
 before_script:
   - flake8 --exclude __init__.py markdown_generator
