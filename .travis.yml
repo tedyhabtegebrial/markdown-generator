@@ -22,4 +22,4 @@ before_script:
   - flake8 --exclude __init__.py markdown_generator
 
 script:
-  - nosetest
+  - nosetests
