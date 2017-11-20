@@ -16,7 +16,7 @@ matrix:
     - python: nightly
 
 install:
-  - pip install -r requirements.txt
+  - make init
 
 before_script:
   - make lint
