@@ -2,7 +2,8 @@ init:
 	pip install -r requirements.txt
 	
 lint:
-	flake8 --exclude __init__.py markdown_generator
+	flake8
 
 test:
-	nosetests
+	python -m pytest
+	coverage run -m pytest -v

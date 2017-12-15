@@ -7,6 +7,8 @@ class BlockQuote(object):
         self.lines.append(text)
 
     def __str__(self):
+        if not self.lines:
+            return ''
         lines = ['{} {}\n'.format(''.ljust(self.level, '>'), line)
                  for line in self.lines]
         return ''.join(lines) + '\n'

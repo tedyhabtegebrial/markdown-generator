@@ -1,5 +1,5 @@
 def wrap(text, tag):
-    return tag + str(text) + tag
+    return tag + str(text) + tag if text else ''
 
 
 def emphasis(text):

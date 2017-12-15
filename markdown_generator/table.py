@@ -1,4 +1,4 @@
-from .alignment import LEFT, RIGHT, CENTER, ColumnAlignment
+from .alignment import Alignment
 
 
 class Table(object):
@@ -6,11 +6,9 @@ class Table(object):
         self.columns = []
         self.entries = []
 
-    def add_column(self, heading, alignment=LEFT):
+    def add_column(self, heading, alignment=Alignment.LEFT):
         if isinstance(alignment, int):
-            alignment = ColumnAlignment(alignment)
-        if alignment not in [LEFT, CENTER, RIGHT]:
-            raise ValueError('Table.addColumn(): invalid alignment given')
+            alignment = Alignment(alignment)
         self.columns.append(Column(heading, alignment))
 
     def append(self, *fields):
@@ -23,20 +21,24 @@ class Table(object):
         return ' | '.join([''] + [str(f) for f in fields] + ['']).strip()
 
     def __str__(self):
-        titleRow = '|'
-        separatorRow = '|'
-        for column in self.columns:
-            titleRow += ' {} |'.format(column.heading)
-            separatorRow += '{}---{}|'.format(
-                ':' if column.alignment.has_flag(LEFT) else ' ',
-                ':' if column.alignment.has_flag(RIGHT) else ' '
-            )
-        result = '{}\n{}\n'.format(titleRow, separatorRow)
-        result += '\n'.join(map(self.format_row, self.entries))
-        return result + '\n'
+        if self.columns:
+            titleRow = '|'
+            separatorRow = '|'
+            for column in self.columns:
+                titleRow += ' {} |'.format(column.heading)
+                separatorRow += '{}---{}|'.format(
+                    ':' if bool(Alignment.LEFT & column.alignment) else ' ',
+                    ':' if bool(Alignment.RIGHT & column.alignment) else ' '
+                )
+            result = '{}\n{}\n'.format(titleRow, separatorRow)
+            result += '\n'.join(map(self.format_row, self.entries))
+            if self.entries:
+                result += '\n'
+            return result + '\n'
+        return ''
 
 
 class Column(object):
-    def __init__(self, heading, alignment=LEFT):
+    def __init__(self, heading, alignment=Alignment.LEFT):
         self.heading = heading
         self.alignment = alignment

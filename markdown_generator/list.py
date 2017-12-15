@@ -7,9 +7,16 @@ class List(object):
         self.items.append(item)
 
     def __str__(self):
-        marker = '1.' if self.ordered else '*'
-        result = ''.join('{} {}\n'.format(marker, item) for item in self.items)
-        return result + '\n'
+        if self.items:
+            def prepend(item, marker):
+                return '{} {}\n'.format(marker, item)
+            if self.ordered:
+                result = ''.join(prepend(x, '{}.'.format(i + 1))
+                                 for i, x in enumerate(self.items))
+            else:
+                result = ''.join(prepend(x, '*') for x in self.items)
+            return result + '\n'
+        return ''
 
 
 class CheckList(object):
@@ -20,8 +27,10 @@ class CheckList(object):
         self.items.append((item, done))
 
     def __str__(self):
-        lines = []
-        for item, done in self.items:
-            mark = 'x' if done else ' '
-            lines.append('- [{}] {}\n'.format(mark, item))
-        return ''.join(lines) + '\n'
+        if self.items:
+            lines = []
+            for item, done in self.items:
+                mark = 'x' if done else ' '
+                lines.append('- [{}] {}\n'.format(mark, item))
+            return ''.join(lines) + '\n'
+        return ''

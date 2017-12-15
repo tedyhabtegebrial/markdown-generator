@@ -41,7 +41,7 @@ writelines()2
 ![my alt text](https://example.com/link/to/image.png)
 
 ```Python
-s = 'Python syntax highlighting
+s = 'Python syntax highlighting'
 print(s)
 ```
 | col1 | col2 | col3 |

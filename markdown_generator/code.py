@@ -7,9 +7,12 @@ class Code(object):
         self.lines.append(text)
 
     def __str__(self):
-        lang = '' if self.language is None else self.language
-        lines = []
-        lines.append('```{}'.format(lang))
-        lines.extend(self.lines)
-        lines.append('```')
-        return '\n'.join(lines) + '\n'
+        if self.lines:
+            lang = '' if self.language is None else self.language
+            lines = []
+            lines.append('```{}'.format(lang))
+            lines.extend(self.lines)
+            lines.append('```')
+            return '\n'.join(lines) + '\n'
+        else:
+            return ''

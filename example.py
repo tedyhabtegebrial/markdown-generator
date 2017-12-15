@@ -46,13 +46,13 @@ if __name__ == '__main__':
         writer.writeline(image)
 
         code = mg.Code('Python')
-        code.append("s = 'Python syntax highlighting")
+        code.append("s = 'Python syntax highlighting'")
         code.append("print(s)")
         writer.write(code)
 
         table = mg.Table()
         table.add_column('col1')
-        table.add_column('col2', mg.alignment.CENTER)
+        table.add_column('col2', mg.Alignment.CENTER)
         table.add_column('col3', 2)
         for i in range(3):
             table.append(*['e{}f{}'.format(i, j) for j in range(3)])
