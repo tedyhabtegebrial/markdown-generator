@@ -9,9 +9,13 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+MAJOR = 0
+MINOR = 1
+BUILD = 3
+
 setup(
     name='markdown_generator',
-    version='0.1.2',
+    version='.'.join(map(str, (MAJOR, MINOR, BUILD))),
     description='Python package for generating GitHub-flavored markdown',
     long_description=readme,
     author='Corey McCandless',
