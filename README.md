@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/cmccandless/markdown-generator.svg?branch=master)](https://travis-ci.org/cmccandless/markdown-generator)
-[![Coverage Status](https://coveralls.io/repos/github/cmccandless/markdown-generator/badge.svg?branch=master)](https://coveralls.io/github/cmccandless/markdown-generator?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/cmccandless/markdown-generator/badge.svg?branch=master)](https://coveralls.io/github/cmccandless/markdown-generator?branch=master&service=github)
 
 Markdown Generator
 ========================
